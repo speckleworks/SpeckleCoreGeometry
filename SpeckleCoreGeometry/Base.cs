@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SpeckleCoreGeometry
 {
-    public class Class1
-    {
-    }
+  class Base
+  {
+    // In silence there is eloquence.
+  }
 }

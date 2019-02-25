@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}</ProjectGuid>
+    <ProjectGuid>{AD40CE88-276B-45BF-9736-7180730E7281}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpeckleCoreGeometry</RootNamespace>
-    <AssemblyName>SpeckleCoreGeometry</AssemblyName>
+    <RootNamespace>SpeckleCoreGeometryClasses</RootNamespace>
+    <AssemblyName>SpeckleCoreGeometryClasses</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,13 +30,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Speckle.pfx</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,33 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Speckle.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
-      <Project>{ad40ce88-276b-45bf-9736-7180730e7281}</Project>
-      <Name>SpeckleCoreGeometryClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SpeckleCoreGeometryDynamo\SpeckleCoreGeometryDynamo.csproj">
-      <Project>{d8b52aa5-618a-49c3-b584-e12c0735551a}</Project>
-      <Name>SpeckleCoreGeometryDynamo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SpeckleCoreGeometryRhino\SpeckleCoreGeometryRhino.csproj">
-      <Project>{41cd3791-ee12-4ae5-90da-ef98ea6d7382}</Project>
-      <Name>SpeckleCoreGeometryRhino</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SpeckleCore\SpeckleCore\SpeckleCore.csproj">
       <Project>{cfe27d3d-8a1a-43f9-9387-8fd9e119e174}</Project>
       <Name>SpeckleCore</Name>
-      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>if not exist C:\Users\Dim\AppData\Local\SpeckleKits\$(ProjectName) mkdir C:\Users\Dim\AppData\Local\SpeckleKits\$(ProjectName)
-Copy "$(TargetDir)" "C:\Users\Dim\AppData\Local\SpeckleKits\$(ProjectName)"</PostBuildEvent>
-  </PropertyGroup>
 </Project>
