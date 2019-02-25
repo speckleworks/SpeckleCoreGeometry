@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleCoreGeometry", "SpeckleCoreGeometry\SpeckleCoreGeometry.csproj", "{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1791B41-141C-41CC-AAB3-63CD81E4A972}
+	EndGlobalSection
+EndGlobal
