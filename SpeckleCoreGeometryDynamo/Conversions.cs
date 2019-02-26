@@ -17,7 +17,7 @@ namespace SpeckleCoreGeometryDynamo
   public static class Conversions
   {
     const double EPS = 1e-6;
-    const string speckleKey = "Speckle";
+    const string speckleKey = "speckle";
     const string appId = null;
 
     public static bool SetBrepDisplayMesh = true;
