@@ -548,7 +548,6 @@ namespace SpeckleCoreGeometryRhino
       myExtrusion.PathStart = extrusion.PathStart.ToSpeckle();
       myExtrusion.PathEnd = extrusion.PathEnd.ToSpeckle();
       myExtrusion.PathTangent = extrusion.PathTangent.ToSpeckle();
-      myExtrusion.ProfileTransformation = extrusion.GetProfileTransformation( 0.0 );
 
       var Profiles = new List<SpeckleObject>();
       for ( int i = 0; i < extrusion.ProfileCount; i++ )

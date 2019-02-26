@@ -380,9 +380,6 @@ namespace SpeckleCoreGeometryClasses
     [Newtonsoft.Json.JsonProperty( "pathTangent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public SpeckleObject PathTangent { get; set; }
 
-    [Newtonsoft.Json.JsonProperty( "profileTransformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public Object ProfileTransformation { get; set; }
-
     [Newtonsoft.Json.JsonProperty( "profiles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public List<SpeckleObject> Profiles { get; set; }
 
