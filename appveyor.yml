@@ -33,10 +33,11 @@ build:
 
 after_build:
   # remove garbage
-  - Remove-Item "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\x86" -Recurse -ErrorAction Ignore
-  - Remove-Item "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\x86" -Recurse -ErrorAction Ignore
-  - Remove-Item "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\*.pdb" -Recurse -ErrorAction Ignore
-  # zip everything into a zip file containing package folder structure
+  - ps: |
+      Remove-Item "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\x86" -Recurse -ErrorAction Ignore
+      Remove-Item "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\x86" -Recurse -ErrorAction Ignore
+      Remove-Item "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\*.pdb" -Recurse -ErrorAction Ignore
+ # zip everything into a zip file containing package folder structure
   - 7z a SpeckleCoreGeometry-%APPVEYOR_BUILD_VERSION%.zip "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\*"
 
 artifacts:
