@@ -332,9 +332,11 @@ namespace SpeckleCoreGeometryRhino
       PolyCurve myPolyc = new PolyCurve();
       foreach ( var segment in p.Segments )
       {
-        try {
-          myPolyc.AppendSegment( (Curve) Converter.Deserialise(segment) );
-        } catch { }
+        try
+        {
+          myPolyc.AppendSegment( ( Curve ) Converter.Deserialise( segment ) );
+        }
+        catch { }
       }
 
       myPolyc.UserDictionary.ReplaceContentsWith( p.Properties.ToNative() );
@@ -528,86 +530,112 @@ namespace SpeckleCoreGeometryRhino
     }
 
     // Extrusions
-    public static SpeckleExtrusion ToSpeckle( this Rhino.Geometry.Extrusion extrusion )
+    // TODO: Research into how to properly create and recreate extrusions. Current way we compromise by transforming them into breps.
+    public static SpeckleBrep ToSpeckle( this Rhino.Geometry.Extrusion extrusion )
     {
-      var myExtrusion = new SpeckleExtrusion( SpeckleCore.Converter.Serialise( extrusion.Profile3d( 0, 0 ) ), extrusion.PathStart.DistanceTo( extrusion.PathEnd ), extrusion.IsCappedAtBottom );
+      return extrusion.ToBrep().ToSpeckle();
 
-      myExtrusion.PathStart = extrusion.PathStart.ToSpeckle();
-      myExtrusion.PathEnd = extrusion.PathEnd.ToSpeckle();
-      myExtrusion.PathTangent = extrusion.PathTangent.ToSpeckle();
+      //var myExtrusion = new SpeckleExtrusion( SpeckleCore.Converter.Serialise( extrusion.Profile3d( 0, 0 ) ), extrusion.PathStart.DistanceTo( extrusion.PathEnd ), extrusion.IsCappedAtBottom );
 
-      var Profiles = new List<SpeckleObject>();
-      for ( int i = 0; i < extrusion.ProfileCount; i++ )
-        Profiles.Add( SpeckleCore.Converter.Serialise( extrusion.Profile3d( i, 0 ) ) );
+      //myExtrusion.PathStart = extrusion.PathStart.ToSpeckle();
+      //myExtrusion.PathEnd = extrusion.PathEnd.ToSpeckle();
+      //myExtrusion.PathTangent = extrusion.PathTangent.ToSpeckle();
 
-      myExtrusion.Profiles = Profiles;
-      myExtrusion.Properties = extrusion.UserDictionary.ToSpeckle( root: extrusion );
-      myExtrusion.GenerateHash();
-      return myExtrusion;
+      //var Profiles = new List<SpeckleObject>();
+      //for ( int i = 0; i < extrusion.ProfileCount; i++ )
+      //  Profiles.Add( SpeckleCore.Converter.Serialise( extrusion.Profile3d( i, 0 ) ) );
+
+      //myExtrusion.Profiles = Profiles;
+      //myExtrusion.Properties = extrusion.UserDictionary.ToSpeckle( root: extrusion );
+      //myExtrusion.GenerateHash();
+      //return myExtrusion;
     }
 
+    // TODO: See above. We're no longer creating new extrusions. This is here just for backwards compatibility.
     public static Rhino.Geometry.Extrusion ToNative( this SpeckleExtrusion extrusion )
     {
-      Curve profile = null;
+      Curve outerProfile = ( Curve ) Converter.Deserialise( extrusion.Profile );
+      Curve innerProfile = null;
+
+      if ( extrusion.Profiles.Count == 2 ) innerProfile = ( Curve ) Converter.Deserialise( extrusion.Profiles[ 1 ] );
+
       try
       {
-        var toNativeMethod = extrusion.Profile.GetType().GetMethod( "ToNative" );
-        profile = ( Curve ) toNativeMethod.Invoke( extrusion.Profile, new object[ ] { extrusion.Profile } );
-        if ( new string[ ] { "Polyline", "Polycurve" }.Contains( extrusion.Profile.Type ) )
-          try
-          {
-            var IsClosed = extrusion.Profile.GetType().GetProperty( "IsClosed" ).GetValue( extrusion.Profile, null ) as bool?;
-            if ( IsClosed != true )
-            {
-              profile.Reverse();
-            }
-          }
-          catch { }
-
-
-        //switch ( extrusion.Profile )
-        //{
-        //  case SpeckleCore.SpeckleCurve curve:
-        //    profile = curve.ToNative();
-        //    break;
-        //  case SpeckleCore.SpecklePolycurve polycurve:
-        //    profile = polycurve.ToNative();
-        //    if ( !profile.IsClosed )
-        //      profile.Reverse();
-        //    break;
-        //  case SpeckleCore.SpecklePolyline polyline:
-        //    profile = polyline.ToNative();
-        //    if ( !profile.IsClosed )
-        //      profile.Reverse();
-        //    break;
-        //  case SpeckleCore.SpeckleArc arc:
-        //    profile = arc.ToNative();
-        //    break;
-        //  case SpeckleCore.SpeckleCircle circle:
-        //    profile = circle.ToNative();
-        //    break;
-        //  case SpeckleCore.SpeckleEllipse ellipse:
-        //    profile = ellipse.ToNative();
-        //    break;
-        //  case SpeckleCore.SpeckleLine line:
-        //    profile = line.ToNative();
-        //    break;
-        //  default:
-        //    profile = null;
-        //    break;
-        //}
+        var IsClosed = extrusion.Profile.GetType().GetProperty( "IsClosed" ).GetValue( extrusion.Profile, null ) as bool?;
+        if ( IsClosed != true )
+          outerProfile.Reverse();
       }
       catch { }
-      if ( profile == null ) return null;
 
-      var myExtrusion = Extrusion.Create( profile.ToNurbsCurve(), ( double ) extrusion.Length, ( bool ) extrusion.Capped );
+      var myExtrusion = Extrusion.Create( outerProfile.ToNurbsCurve(), ( double ) extrusion.Length, ( bool ) extrusion.Capped );
+      if ( innerProfile != null )
+        myExtrusion.AddInnerProfile( innerProfile );
 
-      myExtrusion.UserDictionary.ReplaceContentsWith( extrusion.Properties.ToNative() );
       return myExtrusion;
     }
 
-    // Texts & Annotations
-    public static SpeckleAnnotation ToSpeckle( this TextEntity textentity )
+      //  Curve profile = null;
+      //  try
+      //  {
+      //    var toNativeMethod = extrusion.Profile.GetType().GetMethod( "ToNative" );
+      //    profile = ( Curve ) toNativeMethod.Invoke( extrusion.Profile, new object[ ] { extrusion.Profile } );
+      //    if ( new string[ ] { "Polyline", "Polycurve" }.Contains( extrusion.Profile.Type ) )
+      //      try
+      //      {
+      //        var IsClosed = extrusion.Profile.GetType().GetProperty( "IsClosed" ).GetValue( extrusion.Profile, null ) as bool?;
+      //        if ( IsClosed != true )
+      //        {
+      //          profile.Reverse();
+      //        }
+      //      }
+      //      catch { }
+
+
+      //    //switch ( extrusion.Profile )
+      //    //{
+      //    //  case SpeckleCore.SpeckleCurve curve:
+      //    //    profile = curve.ToNative();
+      //    //    break;
+      //    //  case SpeckleCore.SpecklePolycurve polycurve:
+      //    //    profile = polycurve.ToNative();
+      //    //    if ( !profile.IsClosed )
+      //    //      profile.Reverse();
+      //    //    break;
+      //    //  case SpeckleCore.SpecklePolyline polyline:
+      //    //    profile = polyline.ToNative();
+      //    //    if ( !profile.IsClosed )
+      //    //      profile.Reverse();
+      //    //    break;
+      //    //  case SpeckleCore.SpeckleArc arc:
+      //    //    profile = arc.ToNative();
+      //    //    break;
+      //    //  case SpeckleCore.SpeckleCircle circle:
+      //    //    profile = circle.ToNative();
+      //    //    break;
+      //    //  case SpeckleCore.SpeckleEllipse ellipse:
+      //    //    profile = ellipse.ToNative();
+      //    //    break;
+      //    //  case SpeckleCore.SpeckleLine line:
+      //    //    profile = line.ToNative();
+      //    //    break;
+      //    //  default:
+      //    //    profile = null;
+      //    //    break;
+      //    //}
+      //  }
+      //  catch { }
+      //  var x = new Extrusion();
+
+      //  if ( profile == null ) return null;
+
+      //  var myExtrusion = Extrusion.Create( profile.ToNurbsCurve(), ( double ) extrusion.Length, ( bool ) extrusion.Capped );
+
+      //  myExtrusion.UserDictionary.ReplaceContentsWith( extrusion.Properties.ToNative() );
+      //  return myExtrusion;
+      //}
+
+      // Texts & Annotations
+      public static SpeckleAnnotation ToSpeckle( this TextEntity textentity )
     {
       Rhino.DocObjects.Font font = Rhino.RhinoDoc.ActiveDoc.Fonts[ textentity.FontIndex ];
 
