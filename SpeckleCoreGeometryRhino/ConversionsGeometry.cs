@@ -332,24 +332,11 @@ namespace SpeckleCoreGeometryRhino
       PolyCurve myPolyc = new PolyCurve();
       foreach ( var segment in p.Segments )
       {
-        var ToNativeMethod = segment.GetType().GetMethod( "ToNative" );
-        
-        //  switch ( segment )
-        //{
-        //  case SpeckleCore.SpeckleCurve crv:
-        //    myPolyc.Append( crv.ToNative() );
-        //    break;
-        //  case SpeckleCore.SpeckleLine crv:
-        //    myPolyc.Append( crv.ToNative() );
-        //    break;
-        //  case SpeckleCore.SpeckleArc crv:
-        //    myPolyc.Append( crv.ToNative() );
-        //    break;
-        //  case SpeckleCore.SpecklePolyline crv:
-        //    myPolyc.Append( crv.ToNative() );
-        //    break;
-        //}
+        try {
+          myPolyc.AppendSegment( (Curve) Converter.Deserialise(segment) );
+        } catch { }
       }
+
       myPolyc.UserDictionary.ReplaceContentsWith( p.Properties.ToNative() );
       if ( p.Domain != null )
         myPolyc.Domain = p.Domain.ToNative();

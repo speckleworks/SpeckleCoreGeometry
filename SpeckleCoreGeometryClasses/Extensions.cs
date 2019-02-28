@@ -19,12 +19,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += this.Value.ToString();
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += this.Value.ToString();
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
 
   }
 
@@ -40,12 +40,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += this.Value.ToString();
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += this.Value.ToString();
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
 
     public static implicit operator double? ( SpeckleNumber n )
     {
@@ -70,12 +70,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( this.Value );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( this.Value );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
 
     public static implicit operator string( SpeckleString s )
     {
@@ -110,12 +110,12 @@ namespace SpeckleCoreGeometryClasses
       this.GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Start + End );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Start + End );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleInterval2d
@@ -149,12 +149,12 @@ namespace SpeckleCoreGeometryClasses
       this.GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( U.GeometryHash + V.GeometryHash );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( U.GeometryHash + V.GeometryHash );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
 
   }
 
@@ -179,12 +179,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( this.Value );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( this.Value );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleVector
@@ -207,12 +207,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( this.Value );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( this.Value );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpecklePlane
@@ -242,12 +242,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Origin.GeometryHash + Normal.GeometryHash + Xdir.GeometryHash + Ydir.GeometryHash );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Origin.GeometryHash + Normal.GeometryHash + Xdir.GeometryHash + Ydir.GeometryHash );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleLine
@@ -270,12 +270,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Value );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Value );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleCircle
@@ -300,12 +300,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Plane.GeometryHash + Radius );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Plane.GeometryHash + Radius );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleArc
@@ -333,12 +333,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Plane.GeometryHash + Radius + StartAngle + EndAngle );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Plane.GeometryHash + Radius + StartAngle + EndAngle );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleEllipse
@@ -364,12 +364,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Plane.GeometryHash + FirstRadius + SecondRadius );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Plane.GeometryHash + FirstRadius + SecondRadius );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleBox
@@ -398,12 +398,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( BasePlane.ToJson() + XSize.ToJson() + YSize.ToJson() + ZSize.ToJson() );
-      this.Hash = GetMd5FromObject( this );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( BasePlane.ToJson() + XSize.ToJson() + YSize.ToJson() + ZSize.ToJson() );
+    //  this.Hash = GetMd5FromObject( this );
+    //}
 
   }
 
@@ -427,12 +427,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Value );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Value );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpecklePolycurve
@@ -450,12 +450,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Segments.Select( obj => obj.Hash ).ToArray() );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Segments.Select( obj => obj.Hash ).ToArray() );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleCurve
@@ -479,12 +479,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( this.DisplayValue.GeometryHash );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( this.DisplayValue.GeometryHash );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
 
   }
 
@@ -511,11 +511,11 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleBrep
@@ -541,12 +541,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( this.DisplayValue.GeometryHash );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( this.DisplayValue.GeometryHash );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
 
   }
 
@@ -599,12 +599,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( Profile.GeometryHash + Length + Capped );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( Profile.GeometryHash + Length + Capped );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
   public partial class SpeckleAnnotation : SpeckleObject
@@ -635,13 +635,12 @@ namespace SpeckleCoreGeometryClasses
       GenerateHash();
     }
 
-    public override void GenerateHash( )
-    {
-      base.GenerateHash();
-      this.GeometryHash += GetMd5FromObject( this );
-      this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
-    }
-
+    //public override void GenerateHash( )
+    //{
+    //  base.GenerateHash();
+    //  this.GeometryHash += GetMd5FromObject( this );
+    //  this.Hash = GetMd5FromObject( this.GeometryHash + GetMd5FromObject( this.Properties ) );
+    //}
   }
 
 }
