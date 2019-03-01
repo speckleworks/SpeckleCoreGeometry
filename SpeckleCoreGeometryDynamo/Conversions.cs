@@ -803,7 +803,17 @@ namespace SpeckleCoreGeometryDynamo
     }
 
     #endregion
+    // Brep fallback
 
+    public static Mesh ToNative(this SpeckleBrep brep)
+    {
+      if(brep.DisplayValue!= null)
+      {
+        return brep.DisplayValue.ToNative();
+      }
+      return null;
+    }
+    
     // Meshes
     public static SpeckleMesh ToSpeckle( this Mesh mesh )
     {
