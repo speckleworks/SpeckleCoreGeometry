@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		appveyor.yml = appveyor.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleCoreGeometryRevit", "SpeckleCoreGeometryRevit\SpeckleCoreGeometryRevit.csproj", "{9035B0DB-7746-4356-ABA8-9878C9E7B53C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Dynamo|Any CPU = Debug Dynamo|Any CPU
@@ -66,6 +68,14 @@ Global
 		{D8B52AA5-618A-49C3-B584-E12C0735551A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8B52AA5-618A-49C3-B584-E12C0735551A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8B52AA5-618A-49C3-B584-E12C0735551A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Debug Dynamo|Any CPU.ActiveCfg = Debug|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Debug Dynamo|Any CPU.Build.0 = Debug|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Debug Rhino|Any CPU.ActiveCfg = Debug|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Debug Rhino|Any CPU.Build.0 = Debug|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

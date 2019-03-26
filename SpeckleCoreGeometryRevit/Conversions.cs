@@ -58,7 +58,7 @@ namespace SpeckleCoreGeometryRevit
 
     public static Plane ToNative(this SpecklePlane plane)
     {
-      return Plane.CreateByNormalAndOrigin( plane.Normal.ToNative(), plane.Origin.ToNative() );
+      return Plane.CreateByOriginAndBasis( plane.Origin.ToNative(), plane.Xdir.ToNative().Normalize(), plane.Ydir.ToNative().Normalize() );
     }
 
     public static SpecklePlane ToSpeckle(this Plane plane)
@@ -91,12 +91,23 @@ namespace SpeckleCoreGeometryRevit
 
     public static Arc ToNative(this SpeckleArc arc)
     {
-      return Arc.Create( arc.Plane.ToNative(), (double) arc.Radius, ( double ) arc.StartAngle, ( double ) arc.EndAngle );
+      return Arc.Create( arc.Plane.ToNative(), ( double ) arc.Radius * Scale, ( double ) arc.StartAngle, ( double ) arc.EndAngle ); 
     }
 
     public static SpeckleArc ToSpeckle(this Arc arc)
     {
-      return null;
+      // see https://forums.autodesk.com/t5/revit-api-forum/how-to-retrieve-startangle-and-endangle-of-arc-object/td-p/7637128
+      var arcPlane = Plane.CreateByNormalAndOrigin( arc.Normal, arc.Center );
+
+      XYZ center = arc.Center;
+      XYZ dir0 = ( arc.GetEndPoint( 0 ) - center ).Normalize();
+      XYZ dir1 = ( arc.GetEndPoint( 1 ) - center ).Normalize();
+
+      double startAngle = dir0.AngleOnPlaneTo( arc.XDirection, arc.Normal );
+      double endAngle = dir1.AngleOnPlaneTo( arc.XDirection, arc.Normal );
+
+      var a = new SpeckleArc( arcPlane.ToSpeckle(), arc.Radius, startAngle, endAngle, endAngle - startAngle );
+      return a;
     }
   }
 }

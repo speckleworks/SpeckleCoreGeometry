@@ -81,6 +81,10 @@
       <Project>{d8b52aa5-618a-49c3-b584-e12c0735551a}</Project>
       <Name>SpeckleCoreGeometryDynamo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SpeckleCoreGeometryRevit\SpeckleCoreGeometryRevit.csproj">
+      <Project>{9035b0db-7746-4356-aba8-9878c9e7b53c}</Project>
+      <Name>SpeckleCoreGeometryRevit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpeckleCoreGeometryRhino\SpeckleCoreGeometryRhino.csproj">
       <Project>{41cd3791-ee12-4ae5-90da-ef98ea6d7382}</Project>
       <Name>SpeckleCoreGeometryRhino</Name>
@@ -94,6 +98,6 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist C:\Users\Dim\AppData\Local\SpeckleKitsDebug\$(ProjectName) mkdir C:\Users\Dim\AppData\Local\SpeckleKitsDebug\$(ProjectName)
-Copy "$(TargetDir)" "C:\Users\Dim\AppData\Local\SpeckleKitsDebug\$(ProjectName)"</PostBuildEvent>
+Copy "$(TargetDir)\*.dll" "C:\Users\Dim\AppData\Local\SpeckleKitsDebug\$(ProjectName)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
