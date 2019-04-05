@@ -13,7 +13,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleBoolean : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Boolean"; set => base.Type = value; }
+    public override string Type { get => "Boolean"; }
 
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public bool? Value { get; set; }
@@ -25,7 +25,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleNumber : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Number"; set => base.Type = value; }
+    public override string Type { get => "Number"; }
 
     /// <summary>A number. Can be float, double, etc.</summary>
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -39,7 +39,7 @@ namespace SpeckleCoreGeometryClasses
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
 
-    public override string Type { get => "String"; set => base.Type = value; }
+    public override string Type { get => "String"; }
 
     /// <summary>A string.</summary>
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -52,7 +52,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleInterval : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Interval"; set => base.Type = value; }
+    public override string Type { get => "Interval"; }
 
     [Newtonsoft.Json.JsonProperty( "start", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public double? Start { get; set; }
@@ -66,7 +66,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleInterval2d : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Interval2d"; set => base.Type = value; }
+    public override string Type { get => "Interval2d"; }
 
     /// <summary>U interval.</summary>
     [Newtonsoft.Json.JsonProperty( "U", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -83,7 +83,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpecklePoint : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Point"; set => base.Type = value; }
+    public override string Type { get => "Point"; }
 
     /// <summary>An array containing the X, Y and Z coords of the point.</summary>
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -96,7 +96,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleVector : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Vector"; set => base.Type = value; }
+    public override string Type { get => "Vector"; }
 
     /// <summary>An array containing the X, Y and Z coords of the vector.</summary>
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -109,7 +109,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpecklePlane : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Plane"; set => base.Type = value; }
+    public override string Type { get => "Plane"; }
 
     /// <summary>The origin of the plane.</summary>
     [Newtonsoft.Json.JsonProperty( "origin", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -134,7 +134,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleCircle : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Circle"; set => base.Type = value; }
+    public override string Type { get => "Circle"; }
 
     [Newtonsoft.Json.JsonProperty( "radius", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public double? Radius { get; set; }
@@ -160,7 +160,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleArc : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Arc"; set => base.Type = value; }
+    public override string Type { get => "Arc"; }
 
     [Newtonsoft.Json.JsonProperty( "radius", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public double? Radius { get; set; }
@@ -186,7 +186,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleEllipse : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Ellipse"; set => base.Type = value; }
+    public override string Type { get => "Ellipse"; }
 
     [Newtonsoft.Json.JsonProperty( "firstRadius", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public double? FirstRadius { get; set; }
@@ -207,7 +207,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpecklePolycurve : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Polycurve"; set => base.Type = value; }
+    public override string Type { get => "Polycurve"; }
 
     [Newtonsoft.Json.JsonProperty( "segments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public List<SpeckleObject> Segments { get; set; }
@@ -224,7 +224,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleBox : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Box"; set => base.Type = value; }
+    public override string Type { get => "Box"; }
 
     [Newtonsoft.Json.JsonProperty( "basePlane", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public SpecklePlane BasePlane { get; set; }
@@ -245,7 +245,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleLine : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Line"; set => base.Type = value; }
+    public override string Type { get => "Line"; }
 
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public List<double> Value { get; set; }
@@ -260,7 +260,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpecklePolyline : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Polyline"; set => base.Type = value; }
+    public override string Type { get => "Polyline"; }
 
     [Newtonsoft.Json.JsonProperty( "value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public List<double> Value { get; set; }
@@ -278,7 +278,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleCurve : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Curve"; set => base.Type = value; }
+    public override string Type { get => "Curve"; }
 
     [Newtonsoft.Json.JsonProperty( "degree", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public int Degree { get; set; }
@@ -314,7 +314,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleMesh : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Mesh"; set => base.Type = value; }
+    public override string Type { get => "Mesh"; }
 
     /// <summary>The mesh's vertices array, in a flat array (ie, `x1, y1, z1, x2, y2, ...`)</summary>
     [Newtonsoft.Json.JsonProperty( "vertices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -339,7 +339,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleBrep : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Brep"; set => base.Type = value; }
+    public override string Type { get => "Brep"; }
 
     /// <summary>The brep's raw (serialisation) data.</summary>
     [Newtonsoft.Json.JsonProperty( "rawData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
@@ -360,7 +360,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleExtrusion : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Extrusion"; set => base.Type = value; }
+    public override string Type { get => "Extrusion"; }
 
     [Newtonsoft.Json.JsonProperty( "capped", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public bool? Capped { get; set; }
@@ -392,7 +392,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleAnnotation : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Annotation"; set => base.Type = value; }
+    public override string Type { get => "Annotation"; }
 
     [Newtonsoft.Json.JsonProperty( "text", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public string Text { get; set; }
@@ -422,7 +422,7 @@ namespace SpeckleCoreGeometryClasses
   public partial class SpeckleBlock : SpeckleObject
   {
     [Newtonsoft.Json.JsonProperty( "type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
-    public override string Type { get => "Block"; set => base.Type = value; }
+    public override string Type { get => "Block"; }
 
     [Newtonsoft.Json.JsonProperty( "description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore )]
     public string Description { get; set; }
