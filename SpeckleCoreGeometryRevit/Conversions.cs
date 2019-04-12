@@ -54,8 +54,6 @@ namespace SpeckleCoreGeometryRevit
       return new XYZ( pt.Value[ 0 ] * Scale, pt.Value[ 1 ] * Scale, pt.Value[ 2 ] * Scale );
     }
 
-
-
     public static Plane ToNative( this SpecklePlane plane )
     {
       return Plane.CreateByOriginAndBasis( plane.Origin.ToNative(), plane.Xdir.ToNative().Normalize(), plane.Ydir.ToNative().Normalize() );
@@ -120,7 +118,9 @@ namespace SpeckleCoreGeometryRevit
       }
       try
       {
-        return NurbSpline.CreateCurve( pts, crv.Weights.GetRange( 0, pts.Count ) );
+        var weights = crv.Weights.GetRange( 0, pts.Count );
+        var curve = NurbSpline.CreateCurve( pts, weights );
+        return curve;
       }
       catch ( Exception e )
       {
