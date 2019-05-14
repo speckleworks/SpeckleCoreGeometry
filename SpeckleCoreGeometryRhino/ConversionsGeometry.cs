@@ -483,8 +483,11 @@ namespace SpeckleCoreGeometryRhino
           i += 5;
         }
       }
-
-      m.VertexColors.AppendColors( mesh.Colors.Select( c => System.Drawing.Color.FromArgb( ( int ) c ) ).ToArray() );
+      try
+      {
+        m.VertexColors.AppendColors( mesh.Colors.Select( c => System.Drawing.Color.FromArgb( (int) c ) ).ToArray() );
+      }
+      catch { }
 
       if ( mesh.TextureCoordinates != null )
         for ( int j = 0; j < mesh.TextureCoordinates.Count; j += 2 )
