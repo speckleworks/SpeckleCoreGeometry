@@ -43,7 +43,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Speckle.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Rhino|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -73,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Speckle.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
