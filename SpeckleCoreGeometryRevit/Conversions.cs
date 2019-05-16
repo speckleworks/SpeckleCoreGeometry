@@ -13,7 +13,7 @@ namespace SpeckleCoreGeometryRevit
 
   public class Initialiser : ISpeckleInitializer
   {
-    public Initialiser( ) { }
+    public Initialiser() { }
 
     /// <summary>
     /// Revit doc will be injected in here by the revit plugin. 
@@ -47,8 +47,9 @@ namespace SpeckleCoreGeometryRevit
 
     public static SpecklePoint ToSpeckle( this XYZ pt )
     {
-      return new SpecklePoint( pt.X, pt.Y, pt.Z );
+      return new SpecklePoint( pt.X / Scale, pt.Y / Scale, pt.Z / Scale );
     }
+
     public static XYZ ToNative( this SpeckleVector pt )
     {
       return new XYZ( pt.Value[ 0 ] * Scale, pt.Value[ 1 ] * Scale, pt.Value[ 2 ] * Scale );
@@ -62,14 +63,12 @@ namespace SpeckleCoreGeometryRevit
     public static SpecklePlane ToSpeckle( this Plane plane )
     {
       var origin = plane.Origin.ToSpeckle();
-      var normal = new SpeckleVector( plane.Normal.X, plane.Normal.Y, plane.Normal.Z );
-      var xdir = new SpeckleVector( plane.XVec.X, plane.XVec.Y, plane.XVec.Z );
-      var ydir = new SpeckleVector( plane.YVec.X, plane.YVec.Y, plane.YVec.Z );
+      var normal = new SpeckleVector( plane.Normal.X / Scale, plane.Normal.Y, plane.Normal.Z / Scale );
+      var xdir = new SpeckleVector( plane.XVec.X / Scale, plane.XVec.Y / Scale, plane.XVec.Z / Scale );
+      var ydir = new SpeckleVector( plane.YVec.X / Scale, plane.YVec.Y / Scale, plane.YVec.Z / Scale );
 
       return new SpecklePlane( origin, normal, xdir, ydir );
     }
-
-
 
     public static Line ToNative( this SpeckleLine line )
     {
@@ -89,7 +88,11 @@ namespace SpeckleCoreGeometryRevit
 
     public static Arc ToNative( this SpeckleArc arc )
     {
-      return Arc.Create( arc.Plane.ToNative(), ( double ) arc.Radius * Scale, ( double ) arc.StartAngle, ( double ) arc.EndAngle );
+      double startAngle, endAngle;
+      if( arc.StartAngle > arc.EndAngle ) { startAngle = (double) arc.EndAngle; endAngle = (double) arc.StartAngle; }
+      else { startAngle = (double) arc.StartAngle; endAngle = (double) arc.EndAngle; }
+
+      return Arc.Create( arc.Plane.ToNative(), (double) arc.Radius * Scale, startAngle, endAngle );
     }
 
     public static SpeckleArc ToSpeckle( this Arc arc )
@@ -98,13 +101,13 @@ namespace SpeckleCoreGeometryRevit
       var arcPlane = Plane.CreateByNormalAndOrigin( arc.Normal, arc.Center );
 
       XYZ center = arc.Center;
-      XYZ dir0 = ( arc.GetEndPoint( 0 ) - center ).Normalize();
-      XYZ dir1 = ( arc.GetEndPoint( 1 ) - center ).Normalize();
+      XYZ dir0 = (arc.GetEndPoint( 0 ) - center).Normalize();
+      XYZ dir1 = (arc.GetEndPoint( 1 ) - center).Normalize();
 
       double startAngle = dir0.AngleOnPlaneTo( arc.XDirection, arc.Normal );
       double endAngle = dir1.AngleOnPlaneTo( arc.XDirection, arc.Normal );
 
-      var a = new SpeckleArc( arcPlane.ToSpeckle(), arc.Radius, startAngle, endAngle, endAngle - startAngle );
+      var a = new SpeckleArc( arcPlane.ToSpeckle(), arc.Radius / Scale, startAngle, endAngle, endAngle - startAngle );
       return a;
     }
 
@@ -112,7 +115,7 @@ namespace SpeckleCoreGeometryRevit
     public static Curve ToNative( this SpeckleCurve crv )
     {
       var pts = new List<XYZ>();
-      for ( int i = 0; i < crv.Points.Count; i += 3 )
+      for( int i = 0; i < crv.Points.Count; i += 3 )
       {
         pts.Add( new XYZ( crv.Points[ i ] * Scale, crv.Points[ i + 1 ] * Scale, crv.Points[ i + 2 ] * Scale ) );
       }
@@ -122,11 +125,10 @@ namespace SpeckleCoreGeometryRevit
         var curve = NurbSpline.CreateCurve( pts, weights );
         return curve;
       }
-      catch ( Exception e )
+      catch( Exception e )
       {
         return null;
       }
-
     }
 
   }
