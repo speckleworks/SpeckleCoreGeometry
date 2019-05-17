@@ -1,4 +1,7 @@
-﻿using System;
+﻿extern alias SpeckleNewtonsoft;
+using SNJ = SpeckleNewtonsoft.Newtonsoft.Json;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +11,7 @@ using Rhino.Geometry;
 using Grasshopper.Kernel.Types;
 using SpeckleCore;
 using SpeckleCoreGeometryClasses;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace SpeckleCoreGeometryRhino
 {
@@ -510,7 +513,7 @@ namespace SpeckleCoreGeometryRhino
       Mesh.CreateFromBrep( brep, mySettings ).All( meshPart => { joinedMesh.Append( meshPart ); return true; } );
 
 
-      return new SpeckleBrep( displayValue: joinedMesh.ToSpeckle(), rawData: JsonConvert.SerializeObject( brep ), provenance: "Rhino", properties: brep.UserDictionary.ToSpeckle( root: brep ) );
+      return new SpeckleBrep( displayValue: joinedMesh.ToSpeckle(), rawData: SNJ.JsonConvert.SerializeObject( brep ), provenance: "Rhino", properties: brep.UserDictionary.ToSpeckle( root: brep ) );
     }
 
     public static Brep ToNative( this SpeckleBrep brep )
@@ -519,7 +522,7 @@ namespace SpeckleCoreGeometryRhino
       {
         if ( brep.Provenance == "Rhino" )
         {
-          var myBrep = JsonConvert.DeserializeObject<Brep>( ( string ) brep.RawData );
+          var myBrep = SNJ.JsonConvert.DeserializeObject<Brep>( ( string ) brep.RawData );
           myBrep.UserDictionary.ReplaceContentsWith( brep.Properties.ToNative() );
           return myBrep;
         }
