@@ -42,16 +42,17 @@
     <Reference Include="Grasshopper, Version=6.12.19029.6380, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
       <HintPath>..\packages\Grasshopper.6.12.19029.6381\lib\net45\Grasshopper.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Rhino.UI, Version=6.12.19029.6380, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\packages\RhinoCommon.6.12.19029.6381\lib\net45\Rhino.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RhinoCommon, Version=6.12.19029.6380, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\packages\RhinoCommon.6.12.19029.6381\lib\net45\RhinoCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SpeckleNewtonsoft">
+      <HintPath>..\SpeckleCore\SpeckleNewtonsoft.dll</HintPath>
+      <Aliases>SpeckleNewtonsoft</Aliases>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -74,6 +75,7 @@
     <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
       <Project>{ad40ce88-276b-45bf-9736-7180730e7281}</Project>
       <Name>SpeckleCoreGeometryClasses</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\SpeckleCore\SpeckleCore\SpeckleCore.csproj">
       <Project>{cfe27d3d-8a1a-43f9-9387-8fd9e119e174}</Project>
