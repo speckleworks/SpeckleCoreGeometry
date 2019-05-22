@@ -82,6 +82,14 @@ namespace SpeckleCoreGeometryRhino
         {
           myDictionary.Set( key, ( ( Dictionary<string, object> ) dict[ key ] ).ToNative() );
         }
+        else if( dict[key] is IEnumerable<object> && !(dict[key] is string))
+        {
+          //var temp = new List<object>();
+          // TODO: Quick hack to output lists
+          // NOTE: Archivable Dictionaries only support IEnumberables of one declared type, so here we are ToString()-finyg everything. For the sake of whatever.
+          var temp = ((IEnumerable<object>) dict[ key ]).Select( obj => obj.ToString() );
+          myDictionary.Set( key, temp );
+        }
         else if ( dict[ key ] is SpeckleObject )
         {
           var converted = SpeckleCore.Converter.Deserialise( ( SpeckleObject ) dict[ key ] );

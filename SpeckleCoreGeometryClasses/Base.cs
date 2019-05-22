@@ -10,6 +10,11 @@ using SpeckleCore;
 namespace SpeckleCoreGeometryClasses
 {
 
+  /// <summary>
+  /// TODO
+  /// </summary>
+  public interface ICurve { }
+
   [Serializable]
   public partial class SpeckleBoolean : SpeckleObject
   {
@@ -180,6 +185,15 @@ namespace SpeckleCoreGeometryClasses
 
     [SNJ.JsonProperty( "domain", Required = SNJ.Required.Default, NullValueHandling = SNJ.NullValueHandling.Ignore )]
     public SpeckleInterval Domain { get; set; }
+
+    [SNJ.JsonProperty( "startPoint", Required = SNJ.Required.Default, NullValueHandling = SNJ.NullValueHandling.Ignore )]
+    public SpecklePoint StartPoint { get; set; }
+
+    [SNJ.JsonProperty( "midPoint", Required = SNJ.Required.Default, NullValueHandling = SNJ.NullValueHandling.Ignore )]
+    public SpecklePoint MidPoint { get; set; }
+
+    [SNJ.JsonProperty( "endPoint", Required = SNJ.Required.Default, NullValueHandling = SNJ.NullValueHandling.Ignore )]
+    public SpecklePoint EndPoint { get; set; }
   }
 
 

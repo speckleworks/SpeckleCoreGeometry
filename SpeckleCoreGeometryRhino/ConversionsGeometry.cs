@@ -221,6 +221,9 @@ namespace SpeckleCoreGeometryRhino
     public static SpeckleArc ToSpeckle( this Arc a )
     {
       SpeckleArc arc = new SpeckleArc( a.Plane.ToSpeckle(), a.Radius, a.StartAngle, a.EndAngle, a.Angle );
+      arc.EndPoint = a.EndPoint.ToSpeckle();
+      arc.StartPoint = a.StartPoint.ToSpeckle();
+      arc.MidPoint = a.MidPoint.ToSpeckle();
       return arc;
     }
 
