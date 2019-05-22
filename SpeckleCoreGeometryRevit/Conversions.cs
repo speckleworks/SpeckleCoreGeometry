@@ -91,8 +91,9 @@ namespace SpeckleCoreGeometryRevit
       double startAngle, endAngle;
       if( arc.StartAngle > arc.EndAngle ) { startAngle = (double) arc.EndAngle; endAngle = (double) arc.StartAngle; }
       else { startAngle = (double) arc.StartAngle; endAngle = (double) arc.EndAngle; }
-
-      return Arc.Create( arc.Plane.ToNative(), (double) arc.Radius * Scale, startAngle, endAngle );
+      var plane = arc.Plane.ToNative();
+      return Arc.Create( arc.StartPoint.ToNative(), arc.EndPoint.ToNative(), arc.MidPoint.ToNative() );
+      //return Arc.Create( plane.Origin, (double) arc.Radius * Scale, startAngle, endAngle, plane.XVec, plane.YVec );
     }
 
     public static SpeckleArc ToSpeckle( this Arc arc )
@@ -104,10 +105,17 @@ namespace SpeckleCoreGeometryRevit
       XYZ dir0 = (arc.GetEndPoint( 0 ) - center).Normalize();
       XYZ dir1 = (arc.GetEndPoint( 1 ) - center).Normalize();
 
+      XYZ start = arc.Evaluate( 0, true );
+      XYZ end = arc.Evaluate( 1, true );
+      XYZ mid = arc.Evaluate( 0.5, true );
+
       double startAngle = dir0.AngleOnPlaneTo( arc.XDirection, arc.Normal );
       double endAngle = dir1.AngleOnPlaneTo( arc.XDirection, arc.Normal );
 
       var a = new SpeckleArc( arcPlane.ToSpeckle(), arc.Radius / Scale, startAngle, endAngle, endAngle - startAngle );
+      a.EndPoint = end.ToSpeckle();
+      a.StartPoint = start.ToSpeckle();
+      a.MidPoint = mid.ToSpeckle();
       return a;
     }
 
