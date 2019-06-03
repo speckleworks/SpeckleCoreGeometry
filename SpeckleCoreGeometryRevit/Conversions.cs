@@ -30,7 +30,7 @@ namespace SpeckleCoreGeometryRevit
     /// Scale will be set here by each individual stream bake. 
     /// TODO: Potential race condition when we simulatenously start baking two or more streams that have different scales.
     /// </summary>
-    public static double RevitScale = 3.2808399;
+    public static double RevitScale { get; set; } = 3.2808399;
   }
 
   // TODO: 
