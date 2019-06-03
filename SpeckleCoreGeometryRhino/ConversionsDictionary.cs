@@ -56,7 +56,7 @@ namespace SpeckleCoreGeometryRhino
             GeometryBase obj = dict[ key ] as GeometryBase;
             ArchivableDictionary dictCopy = obj.UserDictionary.Clone();
             obj.UserDictionary.Clear();
-            SpeckleObject conv = SpeckleCore.Converter.Serialise( obj );
+            SpeckleObject conv = SpeckleCore.Converter.Serialise( obj ) as SpeckleObject;
             conv.Properties = dictCopy.ToSpeckle( traversed, path + "/" + key, root );
             conv.GenerateHash();
             myDictionary.Add( key, conv );

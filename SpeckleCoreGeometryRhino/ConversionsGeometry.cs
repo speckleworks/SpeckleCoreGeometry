@@ -325,7 +325,7 @@ namespace SpeckleCoreGeometryRhino
       var segments = new List<Curve>();
       CurveSegments( segments, p, true );
 
-      myPoly.Segments = segments.Select( s => { return SpeckleCore.Converter.Serialise( s ); } ).ToList();
+      myPoly.Segments = segments.Select( s => { return SpeckleCore.Converter.Serialise( s ) as SpeckleObject; } ).ToList();
 
       myPoly.Properties = p.UserDictionary.ToSpeckle( root: p );
       myPoly.GenerateHash();
