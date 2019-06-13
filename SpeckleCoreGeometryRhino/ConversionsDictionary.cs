@@ -45,6 +45,15 @@ namespace SpeckleCoreGeometryRhino
           myDictionary.Add( key, ( ( ArchivableDictionary ) dict[ key ] ).ToSpeckle( traversed, path + "/" + key, root ) );
         else if ( dict[ key ] is string || dict[ key ] is double || dict[ key ] is float || dict[ key ] is int || dict[ key ] is SpeckleObject )
           myDictionary.Add( key, dict[ key ] );
+        else if (dict[key] is IEnumerable && key.ToLower().EndsWith("refs"))
+        {
+          var refsList = new List<object>();
+          foreach (var v in ((IEnumerable)dict[key]))
+          {
+            refsList.Add(v);
+          }
+          myDictionary.Add(key, refsList);
+        }
         else if ( dict[ key ] is IEnumerable )
         {
           myDictionary.Add( key, "enums not supported yet." );
