@@ -46,7 +46,7 @@ artifacts:
   - path: SpeckleCoreGeometry.zip
     name: Release
 
-  - path: test\\.*\.nupkg
+  - path: /.*\.nupkg/
     name: NuPkg
 
 #deploy to nuget
