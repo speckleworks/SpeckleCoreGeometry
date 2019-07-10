@@ -1,5 +1,5 @@
 # General Configuration
-version: 1.0.{build}
+version: 1.1.0.{build}
 skip_branch_with_pr: true
 
 # Environment Configuration
@@ -40,6 +40,18 @@ after_build:
       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometry\bin\Release\SpeckleCoreGeometry.dll.config" -Recurse -ErrorAction Ignore
  # zip everything into a zip file containing package folder structure
   - 7z a SpeckleCoreGeometry.zip "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\*"
+
+#deploy to nuget
+deploy:
+  provider: NuGet
+  server:                  # remove to push to NuGet.org
+  api_key:
+    secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
+  skip_symbols: false
+  symbol_server:           # remove to push symbols to SymbolSource.org
+  artifact: /.*\.nupkg/
+  on:
+    branch: nuget
 
 artifacts:
   path: SpeckleCoreGeometry.zip

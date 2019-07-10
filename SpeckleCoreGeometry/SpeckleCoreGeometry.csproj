@@ -92,11 +92,6 @@
       <Project>{41cd3791-ee12-4ae5-90da-ef98ea6d7382}</Project>
       <Name>SpeckleCoreGeometryRhino</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpeckleCore\SpeckleCore\SpeckleCore.csproj">
-      <Project>{cfe27d3d-8a1a-43f9-9387-8fd9e119e174}</Project>
-      <Name>SpeckleCore</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
