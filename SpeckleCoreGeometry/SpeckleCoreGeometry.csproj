@@ -100,8 +100,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist %25localappdata%25\SpeckleKitsDebug\$(ProjectName) mkdir %25localappdata%25\SpeckleKitsDebug\$(ProjectName)
+    <PostBuildEvent>if not exist %25localappdata%25\SpeckleKits\$(ProjectName) mkdir %25localappdata%25\SpeckleKits\$(ProjectName)
 
-Copy "$(TargetDir)\*.dll" "%25localappdata%25\SpeckleKitsDebug\$(ProjectName)"</PostBuildEvent>
+Copy "$(TargetDir)\*.dll" "%25localappdata%25\SpeckleKits\$(ProjectName)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
