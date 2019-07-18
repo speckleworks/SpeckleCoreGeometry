@@ -60,5 +60,3 @@ deploy:
   artifact: /.*(\.|\.s)nupkg/
   on:
     branch: nuget
-configuration:
-  - Release
