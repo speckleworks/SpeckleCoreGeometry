@@ -377,8 +377,11 @@ namespace SpeckleCoreGeometryRhino
       if ( curve.IsLinear( Rhino.RhinoDoc.ActiveDoc.ModelAbsoluteTolerance ) || curve.IsPolyline() ) // defaults to polyline
       {
         Polyline getObj; curve.TryGetPolyline( out getObj );
-        SpeckleObject myObject = getObj.ToSpeckle(); myObject.Properties = properties; myObject.GenerateHash();
-        return myObject;
+        if (null != getObj)
+        {
+          SpeckleObject myObject = getObj.ToSpeckle(); myObject.Properties = properties; myObject.GenerateHash();
+          return myObject;
+        }
       }
 
       Polyline poly;
