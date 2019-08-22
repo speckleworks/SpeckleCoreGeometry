@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/speckleworks/SpeckleCoreGeometry</projectUrl>
     <iconUrl>https://avatars2.githubusercontent.com/u/31284874</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>A set of core geometry classes for Speckle.</description>
     <releaseNotes></releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>speckle core geometry</tags>
