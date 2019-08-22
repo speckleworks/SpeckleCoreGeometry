@@ -4,7 +4,7 @@
     <id>SpeckleCoreGeometry</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
+    <authors>Speckle</authors>
     <owners>$author$</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/speckleworks/SpeckleCoreGeometry</projectUrl>
