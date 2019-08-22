@@ -1,6 +1,21 @@
 # General Configuration
-version: 1.1.0.{build}
+version: '{build}'
 skip_branch_with_pr: true
+
+init:
+  - ps: |
+      If($Env:APPVEYOR_REPO_TAG -eq "true")
+      {
+        Update-AppveyorBuild -Version "$Env:APPVEYOR_REPO_TAG_NAME"
+      } 
+      else 
+      {
+        $releases = "https://api.github.com/repos/$env:APPVEYOR_REPO_NAME/releases"
+        $tag = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].tag_name
+        $spl = $tag.Split("-")[0]
+        Update-AppveyorBuild -Version "$spl.$Env:APPVEYOR_BUILD_VERSION-wip"
+      }
+      Write-Host "Hello. Build version is: $Env:APPVEYOR_BUILD_VERSION"
 
 # Environment Configuration
 image: Visual Studio 2019
@@ -59,4 +74,4 @@ deploy:
   symbol_server:           # remove to push symbols to SymbolSource.org
   artifact: /.*(\.|\.s)nupkg/
   on:
-    branch: nuget
+    appveyor_repo_tag: true

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>SpeckleCoreGeometry</id>
     <version>$version$</version>
     <title>$title$</title>
     <authors>$author$</authors>
@@ -16,11 +16,7 @@
     <tags>speckle core geometry</tags>
     <dependencies>
       <dependency id="SpeckleCore" version="1.5.1.326" />
-      <dependency id="DynamoVisualProgramming.Core" version="2.0.2.6986" />
-      <dependency id="Grasshopper" version="6.12.19029.6381" />
       <dependency id="Newtonsoft.Json" version="12.0.2" />
-      <dependency id="Revit.RevitApiUI.x64" version="2019.0.0" />
-      <dependency id="Revit.RevitApi.x64" version="2019.0.0" />
     </dependencies>
   </metadata>
 </package>
