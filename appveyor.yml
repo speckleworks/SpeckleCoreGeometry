@@ -1,6 +1,5 @@
 # General Configuration
 version: '{build}'
-skip_branch_with_pr: true
 
 init:
   - ps: |
