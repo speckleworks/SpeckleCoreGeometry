@@ -21,6 +21,6 @@
   </metadata>
   <files>
     <file src="bin\Release\SpeckleCoreGeometry.dll" target="lib" />
-    <file src="bin\Debug\SpeckleCoreGeometry.pdb" target="lib" />
+    <file src="bin\Release\SpeckleCoreGeometry.pdb" target="lib" />
   </files>
 </package>
