@@ -55,11 +55,12 @@ after_build:
   - ps: |
       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x86" -Recurse -ErrorAction Ignore
       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x64" -Recurse -ErrorAction Ignore
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\*.pdb" -Recurse -ErrorAction Ignore
 
 #deploy to nuget
 deploy:
   - provider: NuGet
+    symbol_server:           # remove to push symbols to SymbolSource.org
+    server:                  # remove to push to NuGet.org
     api_key:
       secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
     skip_symbols: false
