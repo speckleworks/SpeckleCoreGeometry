@@ -52,7 +52,6 @@ namespace SpeckleCoreGeometryClasses
 
   }
 
-
   [Serializable]
   public partial class SpeckleInterval : SpeckleObject
   {
