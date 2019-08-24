@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SpeckleCoreGeometryClasses")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SpeckleCoreGeometryClasses")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyDescription( "Geometry and primitive types for Speckle, with translators to Rhino, Dynamo and Revit..." )]
+[assembly: AssemblyConfiguration( "" )]
+[assembly: AssemblyProduct( "SpeckleCoreGeometry" )]
+[assembly: AssemblyCompany( "https://speckle.works" )]
+[assembly: AssemblyCopyright( "Copyright © 2019 Project Contributors. Licensed under the MIT license." )]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

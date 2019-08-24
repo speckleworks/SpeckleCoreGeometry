@@ -43,32 +43,28 @@ before_build:
   - nuget restore
 
 build:  
-  project: SpeckleCoreGeometry.sln
+  publish_nuget: true
+  include_nuget_references: true
+  publish_nuget_symbols: true
+  use_snupkg_format: true
+  project: SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj
   verbosity: minimal
 
 after_build:
   # remove garbage
   - ps: |
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometry\bin\Release\x86" -Recurse -ErrorAction Ignore
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometry\bin\Release\x64" -Recurse -ErrorAction Ignore
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometry\bin\Release\*.pdb" -Recurse -ErrorAction Ignore
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometry\bin\Release\SpeckleCoreGeometry.dll.config" -Recurse -ErrorAction Ignore
- # zip everything into a zip file containing package folder structure
-  - 7z a SpeckleCoreGeometry.zip "%APPVEYOR_BUILD_FOLDER%\SpeckleCoreGeometry\bin\Release\*"
+      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x86" -Recurse -ErrorAction Ignore
+      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x64" -Recurse -ErrorAction Ignore
+      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\*.pdb" -Recurse -ErrorAction Ignore
 
-artifacts:
-  - path: SpeckleCoreGeometry.zip
-    name: Release
-
-#deploy to github
+#deploy to nuget
 deploy:
-  - provider: GitHub
-    tag: $(APPVEYOR_REPO_TAG_NAME)
-    auth_token:
-      secure: D5tPFvdQMg9sIe0sSvQjEWw4KAdOk1jyxNwiH5qP5DpDmUH6n6NgTdA+56vXS1Pe # your encrypted token from GitHub
-    artifact: Release
-    force_update: true
-    on:              
+  - provider: NuGet
+    api_key:
+      secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
+    skip_symbols: false
+    artifact: /.*(\.|\.s)nupkg/
+    on:
       appveyor_repo_tag: true
 
 
