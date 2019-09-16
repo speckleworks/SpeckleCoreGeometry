@@ -14,7 +14,7 @@ namespace SpeckleCoreGeometryClasses
     public SpeckleBoolean( bool value, Dictionary<string, object> properties = null )
     {
       this.Value = value;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -35,7 +35,7 @@ namespace SpeckleCoreGeometryClasses
     public SpeckleNumber( double value, Dictionary<string, object> properties = null )
     {
       this.Value = value;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -65,7 +65,7 @@ namespace SpeckleCoreGeometryClasses
     public SpeckleString( string value, Dictionary<string, object> properties = null )
     {
       this.Value = value;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -96,7 +96,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.Start = start;
       this.End = end;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -126,7 +126,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.U = U;
       this.V = V;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -135,7 +135,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.U = new SpeckleInterval( start_u, end_u );
       this.V = new SpeckleInterval( start_v, end_v );
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -166,7 +166,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.Value = new List<double>() { x, y, z };
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -195,7 +195,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.Value = new List<double>() { x, y, z };
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -226,7 +226,7 @@ namespace SpeckleCoreGeometryClasses
       this.Xdir = XDir;
       this.Ydir = YDir;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -258,7 +258,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.Value = coordinatesArray.ToList();
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -287,7 +287,7 @@ namespace SpeckleCoreGeometryClasses
       this.Plane = plane;
       this.Radius = radius;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -320,7 +320,7 @@ namespace SpeckleCoreGeometryClasses
       this.EndAngle = endAngle;
       this.AngleRadians = angleRadians;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -351,7 +351,7 @@ namespace SpeckleCoreGeometryClasses
       this.FirstRadius = radius1;
       this.SecondRadius = radius2;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -383,7 +383,7 @@ namespace SpeckleCoreGeometryClasses
       this.YSize = ySize;
       this.ZSize = zSize;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -415,7 +415,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.Value = coordinatesArray.ToList();
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -466,7 +466,7 @@ namespace SpeckleCoreGeometryClasses
     {
       this.DisplayValue = poly;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -499,7 +499,7 @@ namespace SpeckleCoreGeometryClasses
       this.Colors = colors.ToList();
       this.ApplicationId = applicationId;
 
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -528,7 +528,7 @@ namespace SpeckleCoreGeometryClasses
       this.Provenance = provenance;
       this.DisplayValue = displayValue;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -560,7 +560,7 @@ namespace SpeckleCoreGeometryClasses
       this.Length = length;
       this.Capped = capped;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
@@ -621,7 +621,7 @@ namespace SpeckleCoreGeometryClasses
       this.Plane = plane;
       this.Location = location;
       this.ApplicationId = applicationId;
-      this.Properties = properties;
+      if (properties != null) this.Properties = properties;
 
       GenerateHash();
     }
