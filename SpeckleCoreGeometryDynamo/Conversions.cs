@@ -360,37 +360,8 @@ namespace SpeckleCoreGeometryDynamo
     public static Curve ToNative(this SpecklePolyline polyline)
     {
       var points = polyline.Value.ToPoints();
-      var polycurve = PolyCurve.ByPoints(points);
-
-      // If closed, can be a polygon
-      if (polyline.Closed)
-      {
-        // If planar, make a polygon.
-        if (polycurve.IsPlanar)
-        {
-          polycurve.Dispose(); // geometry not needed. Freeing memory.
-          double dot = Vector.ByTwoPoints(points[0], points[1]).Dot(Vector.ByTwoPoints(points[1], points[2]));
-
-          if (points.Count() == 4 && Threshold(dot, 0))
-          {
-            return Rectangle.ByCornerPoints(points).SetSpeckleProperties<Rectangle>(polyline.Properties);
-          }
-          else
-          {
-            return Polygon.ByPoints(points).SetSpeckleProperties<Polygon>(polyline.Properties);
-          }
-        }
-        else
-        {
-          PolyCurve closed = polycurve.CloseWithLine().SetSpeckleProperties<PolyCurve>(polyline.Properties);
-          polycurve.Dispose();
-          return closed;
-        }
-      }
-      else
-      {
-        return polycurve.SetSpeckleProperties<PolyCurve>(polyline.Properties);
-      }
+      if (polyline.Closed) return PolyCurve.ByPoints(points).CloseWithLine().SetSpeckleProperties<PolyCurve>(polyline.Properties);
+      return PolyCurve.ByPoints(points).SetSpeckleProperties<PolyCurve>(polyline.Properties);
     }
 
     #endregion
