@@ -861,9 +861,9 @@ namespace SpeckleCoreGeometryDynamo
       //  textureCoords = mesh.TextureCoordinates.Select(pt => pt).ToFlatArray();
       //  return new SpeckleMesh(vertices, faces, Colors, textureCoords, properties: mesh.UserDictionary.ToSpeckle());
       //}
-
-      var speckleMesh = new SpeckleMesh(vertices, faces, colors, null, appId);
-      speckleMesh.Properties = mesh.GetSpeckleProperties();
+     
+      var speckleMesh = new SpeckleMesh(vertices, faces, colors, null, appId, mesh.GetSpeckleProperties());
+      
       return speckleMesh;
     }
 
