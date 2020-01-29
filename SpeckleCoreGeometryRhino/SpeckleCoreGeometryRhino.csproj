@@ -125,14 +125,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
-      <Project>{ad40ce88-276b-45bf-9736-7180730e7281}</Project>
-      <Name>SpeckleCoreGeometryClasses</Name>
-      <Private>False</Private>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
+      <Project>{cd7a89d1-62e5-431d-8246-a20dc7e36f4a}</Project>
+      <Name>SpeckleCoreGeometryClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\RhinoCommon.6.12.19029.6381\build\net45\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.6.12.19029.6381\build\net45\RhinoCommon.targets')" />
