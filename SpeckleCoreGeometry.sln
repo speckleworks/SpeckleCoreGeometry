@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29001.49
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleCoreGeometry", "SpeckleCoreGeometry\SpeckleCoreGeometry.csproj", "{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleCoreGeometryClasses", "SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj", "{AD40CE88-276B-45BF-9736-7180730E7281}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleCoreGeometryRhino", "SpeckleCoreGeometryRhino\SpeckleCoreGeometryRhino.csproj", "{41CD3791-EE12-4AE5-90DA-EF98EA6D7382}"
 EndProject
@@ -14,11 +12,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C24987A3-AC80-48B8-9056-EC581E566B31}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		appveyor.nuget.yml = appveyor.nuget.yml
 		appveyor.yml = appveyor.yml
-		SpeckleCoreGeometry\SpeckleCoreGeometry.nuspec = SpeckleCoreGeometry\SpeckleCoreGeometry.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleCoreGeometryRevit", "SpeckleCoreGeometryRevit\SpeckleCoreGeometryRevit.csproj", "{9035B0DB-7746-4356-ABA8-9878C9E7B53C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeckleCoreGeometryClasses", "SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj", "{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,22 +48,6 @@ Global
 		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Release|x64.ActiveCfg = Release|x64
 		{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}.Release|x64.Build.0 = Release|x64
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Dynamo|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Dynamo|Any CPU.Build.0 = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Dynamo|x64.ActiveCfg = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Dynamo|x64.Build.0 = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Rhino|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Rhino|Any CPU.Build.0 = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Rhino|x64.ActiveCfg = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug Rhino|x64.Build.0 = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Debug|x64.Build.0 = Debug|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Release|x64.ActiveCfg = Release|Any CPU
-		{AD40CE88-276B-45BF-9736-7180730E7281}.Release|x64.Build.0 = Release|Any CPU
 		{41CD3791-EE12-4AE5-90DA-EF98EA6D7382}.Debug Dynamo|Any CPU.ActiveCfg = Debug|Any CPU
 		{41CD3791-EE12-4AE5-90DA-EF98EA6D7382}.Debug Dynamo|Any CPU.Build.0 = Debug|Any CPU
 		{41CD3791-EE12-4AE5-90DA-EF98EA6D7382}.Debug Dynamo|x64.ActiveCfg = Debug|Any CPU
@@ -112,6 +96,22 @@ Global
 		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Release|x64.ActiveCfg = Release|Any CPU
 		{9035B0DB-7746-4356-ABA8-9878C9E7B53C}.Release|x64.Build.0 = Release|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Dynamo|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Dynamo|Any CPU.Build.0 = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Dynamo|x64.ActiveCfg = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Dynamo|x64.Build.0 = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Rhino|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Rhino|Any CPU.Build.0 = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Rhino|x64.ActiveCfg = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug Rhino|x64.Build.0 = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD7A89D1-62E5-431D-8246-A20DC7E36F4A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
