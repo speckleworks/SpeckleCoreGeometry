@@ -70,8 +70,8 @@
       <HintPath>..\packages\Revit.RevitApiUI.x64.2019.0.0\lib\net45\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="SpeckleCore, Version=1.7.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\SpeckleCore.1.7.1-wip\lib\net45\SpeckleCore.dll</HintPath>
+    <Reference Include="SpeckleCore, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpeckleCore.1.7.0-wip\lib\netstandard2.0\SpeckleCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.5.231.0, Culture=neutral, processorArchitecture=MSIL">
@@ -120,6 +120,7 @@
     <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
       <Project>{cd7a89d1-62e5-431d-8246-a20dc7e36f4a}</Project>
       <Name>SpeckleCoreGeometryClasses</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

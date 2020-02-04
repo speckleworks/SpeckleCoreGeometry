@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpeckleCore" Version="1.7.1-wip" />
+    <PackageReference Include="SpeckleCore" Version="1.7.0-wip" />
   </ItemGroup>
 
 </Project>
