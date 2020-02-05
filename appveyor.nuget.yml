@@ -9,6 +9,13 @@ init:
         Write-Host "Tag is $Env:APPVEYOR_REPO_TAG_NAME"
         $env:APPVEYOR_BUILD_VERSION=$env:APPVEYOR_REPO_TAG_NAME
         Update-AppveyorBuild -Version "$Env:APPVEYOR_REPO_TAG_NAME"
+
+        $base = $env:APPVEYOR_REPO_TAG_NAME.split('-')[0]
+        $arr = $base.split(".")
+        $major = $arr[0]
+        $minor = $arr[1]
+        $patch = $arr[2]
+        $env:CLEANTAG=$base
       } 
       else 
       {
@@ -16,6 +23,13 @@ init:
         $tag = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].tag_name
         $spl = $tag.Split("-")[0]
         Update-AppveyorBuild -Version "$spl.$Env:APPVEYOR_BUILD_VERSION-wip"
+
+        $base = $tag.Split("-")[0]
+        $arr = $base.split(".")
+        $major = $arr[0]
+        $minor = $arr[1]
+        $patch = $arr[2]
+        $env:CLEANTAG=$base
       }
       Write-Host "Hello. Build version is: $Env:APPVEYOR_BUILD_VERSION"
 
@@ -28,12 +42,22 @@ install:
   #init and update submodules
   - git submodule update --recursive --init
 
- # version
-assembly_info:
+#  # version
+# assembly_info:
+#   patch: true
+#   file: AssemblyInfo.*
+#   assembly_version: '{version}'
+#   assembly_file_version: '{version}'
+
+# version
+dotnet_csproj:
   patch: true
-  file: AssemblyInfo.*
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
+  file: SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj
+  version: $(CLEANTAG)
+  assembly_version: $(CLEANTAG)
+  file_version: $(CLEANTAG)
+  informational_version: $(CLEANTAG)
+  package_version: '{version}'
 
 # Build Configuration
 platform: Any CPU
