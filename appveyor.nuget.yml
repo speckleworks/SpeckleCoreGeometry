@@ -50,11 +50,11 @@ build:
   project: SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj
   verbosity: minimal
 
-after_build:
-  # remove garbage
-  - ps: |
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x86" -Recurse -ErrorAction Ignore
-      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x64" -Recurse -ErrorAction Ignore
+# after_build:
+#   # remove garbage
+#   - ps: |
+#       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x86" -Recurse -ErrorAction Ignore
+#       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x64" -Recurse -ErrorAction Ignore
 
 #deploy to nuget
 deploy:
