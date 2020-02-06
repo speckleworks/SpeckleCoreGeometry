@@ -82,13 +82,12 @@ build:
 
 #deploy to nuget
 deploy:
-  - provider: NuGet
+    provider: NuGet
     symbol_server:           # remove to push symbols to SymbolSource.org
     server:                  # remove to push to NuGet.org
     api_key:
       secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
     skip_symbols: false
-    artifact: /.*(\.|\.s)nupkg/
     on:
       appveyor_repo_tag: true
 
