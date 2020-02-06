@@ -1,6 +1,6 @@
 # General Configuration
 version: '{build}'
-
+image: Visual Studio 2019
 init:
   - ps: |
       If($Env:APPVEYOR_REPO_TAG -eq "true")
@@ -33,21 +33,9 @@ init:
       }
       Write-Host "Hello. Build version is: $Env:APPVEYOR_BUILD_VERSION"
 
-# Environment Configuration
-image: Visual Studio 2019
-cache:
-  - '%LocalAppData%\NuGet\v3-cache'
+before_build:
+  - nuget restore
 
-install:
-  #init and update submodules
-  - git submodule update --recursive --init
-
-#  # version
-# assembly_info:
-#   patch: true
-#   file: AssemblyInfo.*
-#   assembly_version: '{version}'
-#   assembly_file_version: '{version}'
 
 # version
 dotnet_csproj:
@@ -59,12 +47,7 @@ dotnet_csproj:
   informational_version: $(CLEANTAG)
   package_version: '{version}'
 
-# Build Configuration
-platform: Any CPU
-configuration: Release
 
-before_build:
-  - nuget restore
 
 build:  
   publish_nuget: true
@@ -74,6 +57,7 @@ build:
   project: SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj
   verbosity: minimal
 
+
 # after_build:
 #   # remove garbage
 #   - ps: |
@@ -82,13 +66,15 @@ build:
 
 #deploy to nuget
 deploy:
-    provider: NuGet
-    symbol_server:           # remove to push symbols to SymbolSource.org
-    server:                  # remove to push to NuGet.org
-    api_key:
-      secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
-    skip_symbols: false
-    on:
-      appveyor_repo_tag: true
+  provider: NuGet
+  symbol_server:           # remove to push symbols to SymbolSource.org
+  server:                  # remove to push to NuGet.org
+  api_key:
+    secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
+  skip_symbols: false
+  on:
+    appveyor_repo_tag: true
 
+configuration:
+  - Release
 
