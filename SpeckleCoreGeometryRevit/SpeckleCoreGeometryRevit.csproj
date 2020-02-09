@@ -72,6 +72,7 @@
     </Reference>
     <Reference Include="SpeckleCore, Version=1.7.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SpeckleCore.1.7.2.414\lib\netstandard2.0\SpeckleCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.5.231.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\sqlite-net-pcl.1.5.231\lib\netstandard1.1\SQLite-net.dll</HintPath>
