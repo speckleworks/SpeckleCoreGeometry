@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpeckleCore" Version="1.7.2.414" />
+    <PackageReference Include="SpeckleCore" Version="1.6.17-wip" />
   </ItemGroup>
 
 </Project>
