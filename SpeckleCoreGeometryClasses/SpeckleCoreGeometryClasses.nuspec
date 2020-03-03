@@ -4,7 +4,7 @@
     <id>SpeckleCoreGeometry</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>Speckle</authors>  
+    <authors>Speckle</authors>
     <owners>$author$</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/speckleworks/SpeckleCoreGeometry</projectUrl>
@@ -15,7 +15,7 @@
     <copyright>$copyright$</copyright>
     <tags>speckle core geometry</tags>
     <dependencies>
-      <dependency id="SpeckleCore" version="1.7.2" />
+      <dependency id="SpeckleCore" version="1.6.17" />
       <dependency id="Newtonsoft.Json" version="12.0.2" />
     </dependencies>
   </metadata>
