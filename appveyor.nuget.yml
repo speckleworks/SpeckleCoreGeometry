@@ -1,6 +1,6 @@
 # General Configuration
 version: '{build}'
-image: Visual Studio 2019
+
 init:
   - ps: |
       If($Env:APPVEYOR_REPO_TAG -eq "true")
@@ -9,13 +9,6 @@ init:
         Write-Host "Tag is $Env:APPVEYOR_REPO_TAG_NAME"
         $env:APPVEYOR_BUILD_VERSION=$env:APPVEYOR_REPO_TAG_NAME
         Update-AppveyorBuild -Version "$Env:APPVEYOR_REPO_TAG_NAME"
-
-        $base = $env:APPVEYOR_REPO_TAG_NAME.split('-')[0]
-        $arr = $base.split(".")
-        $major = $arr[0]
-        $minor = $arr[1]
-        $patch = $arr[2]
-        $env:CLEANTAG=$base
       } 
       else 
       {
@@ -23,31 +16,31 @@ init:
         $tag = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].tag_name
         $spl = $tag.Split("-")[0]
         Update-AppveyorBuild -Version "$spl.$Env:APPVEYOR_BUILD_VERSION-wip"
-
-        $base = $tag.Split("-")[0]
-        $arr = $base.split(".")
-        $major = $arr[0]
-        $minor = $arr[1]
-        $patch = $arr[2]
-        $env:CLEANTAG=$base
       }
       Write-Host "Hello. Build version is: $Env:APPVEYOR_BUILD_VERSION"
 
+# Environment Configuration
+image: Visual Studio 2019
+cache:
+  - '%LocalAppData%\NuGet\v3-cache'
+
+install:
+  #init and update submodules
+  - git submodule update --recursive --init
+
+ # version
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+
+# Build Configuration
+platform: Any CPU
+configuration: Release
+
 before_build:
   - nuget restore
-
-
-# version
-dotnet_csproj:
-  patch: true
-  file: SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj
-  version: $(CLEANTAG)
-  assembly_version: $(CLEANTAG)
-  file_version: $(CLEANTAG)
-  informational_version: $(CLEANTAG)
-  package_version: '{version}'
-
-
 
 build:  
   publish_nuget: true
@@ -57,24 +50,22 @@ build:
   project: SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj
   verbosity: minimal
 
-
-# after_build:
-#   # remove garbage
-#   - ps: |
-#       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x86" -Recurse -ErrorAction Ignore
-#       Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x64" -Recurse -ErrorAction Ignore
+after_build:
+  # remove garbage
+  - ps: |
+      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x86" -Recurse -ErrorAction Ignore
+      Remove-Item "$Env:APPVEYOR_BUILD_FOLDER\SpeckleCoreGeometryClasses\bin\Release\x64" -Recurse -ErrorAction Ignore
 
 #deploy to nuget
 deploy:
-  provider: NuGet
-  symbol_server:           # remove to push symbols to SymbolSource.org
-  server:                  # remove to push to NuGet.org
-  api_key:
-    secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
-  skip_symbols: false
-  on:
-    appveyor_repo_tag: true
+  - provider: NuGet
+    symbol_server:           # remove to push symbols to SymbolSource.org
+    server:                  # remove to push to NuGet.org
+    api_key:
+      secure: n4EiHDLVSLjOzqT7OOOg3US3PWs6fNsOaGpyT/EFBKrTKl/1wMmmKt73MNuTngD+
+    skip_symbols: false
+    artifact: /.*(\.|\.s)nupkg/
+    on:
+      appveyor_repo_tag: true
 
-configuration:
-  - Release
 
