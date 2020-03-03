@@ -454,7 +454,7 @@ namespace SpeckleCoreGeometryRhino
     // Meshes
     public static SpeckleMesh ToSpeckle( this Mesh mesh )
     {
-      var verts = mesh.Vertices.Select( pt => ( Point3d ) pt ).ToFlatArray();
+      var verts = mesh.Vertices.ToPoint3dArray().ToFlatArray();
 
       //var tex_coords = mesh.TextureCoordinates.Select( pt => pt ).ToFlatArray();
 
