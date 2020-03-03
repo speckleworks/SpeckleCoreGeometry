@@ -17,8 +17,6 @@ namespace SpeckleCoreGeometryRevit
 
     // Insipred by
     // https://github.com/DynamoDS/DynamoRevit/blob/master/src/Libraries/RevitNodes/GeometryConversion/ProtoToRevitMesh.cs
-    // and by
-    // 
     public static IList<GeometryObject> ToNative(this SpeckleMesh mesh)
     {
 
