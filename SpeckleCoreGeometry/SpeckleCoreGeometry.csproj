@@ -1,102 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E08BCAA-2B3A-4813-8B43-33B4AEDDF2FC}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpeckleCoreGeometry</RootNamespace>
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <Authors>https://speckle.works</Authors>
+    <LangVersion>8.0</LangVersion>
+    <Authors>Speckle</Authors>
+    <Company>Speckle</Company>
+    <Product>SpeckleCoreGeometry</Product>
+    <Description>A set of core geometry classes for Speckle.</Description>
+    <Summary>A set of core geometry classes for Speckle.</Summary>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Copyright>Copyright © Speckle</Copyright>
     <AssemblyName>SpeckleCoreGeometry</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Dynamo|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>portable</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Rhino|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <OutputPath>bin\Debug\</OutputPath>
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <IncludeSymbols>true</IncludeSymbols>
+    <RootNamespace>SpeckleCoreGeometry</RootNamespace>
+    <PackageProjectUrl>https://speckle.works</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/speckleworks/SpeckleCoreGeometry</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <InformationalVersion>1.0.0.0</InformationalVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageVersion>1.0.0.0</PackageVersion>
+
+    <!-- PREVENTS NUGETS TO BE COPIED TOO! -->
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Base.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\SpeckleCoreGeometryClasses\SpeckleCoreGeometryClasses.csproj">
+      <Private>true</Private>
+    </ProjectReference>
     <ProjectReference Include="..\SpeckleCoreGeometryDynamo\SpeckleCoreGeometryDynamo.csproj">
-      <Project>{d8b52aa5-618a-49c3-b584-e12c0735551a}</Project>
-      <Name>SpeckleCoreGeometryDynamo</Name>
+      <Private>true</Private>
     </ProjectReference>
     <ProjectReference Include="..\SpeckleCoreGeometryRevit\SpeckleCoreGeometryRevit.csproj">
-      <Project>{9035b0db-7746-4356-aba8-9878c9e7b53c}</Project>
-      <Name>SpeckleCoreGeometryRevit</Name>
+      <Private>true</Private>
     </ProjectReference>
     <ProjectReference Include="..\SpeckleCoreGeometryRhino\SpeckleCoreGeometryRhino.csproj">
-      <Project>{41cd3791-ee12-4ae5-90da-ef98ea6d7382}</Project>
-      <Name>SpeckleCoreGeometryRhino</Name>
+      <Private>true</Private>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>
