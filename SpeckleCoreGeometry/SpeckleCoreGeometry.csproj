@@ -99,4 +99,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+    <!-- if we are in DEBUG mode, it copies built files to SpeckleKits user folder -->
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
+    <ItemGroup>
+      <BuildFiles Include="$(TargetDir)\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BuildFiles)" DestinationFolder="$(LocalAppData)\SpeckleKits\$(ProjectName)" />
+  </Target>
 </Project>
